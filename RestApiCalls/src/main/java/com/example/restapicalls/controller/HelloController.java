@@ -1,9 +1,6 @@
 package com.example.restapicalls.controller;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/hello")
@@ -17,6 +14,13 @@ public class HelloController {
     // Step-2 Creating a method to get the request using parameter name
     @GetMapping("/query")
     public String sayHello(@RequestParam String name) {
+        return "Hello " + name + " from BridgeLabz";
+    }
+
+    //Step-3 Maps GET requests with a path variable
+    @GetMapping("/param/{name}")
+    public String sayHelloWithPath(@PathVariable String name) {
+        // Returns a greeting message with the provided name
         return "Hello " + name + " from BridgeLabz";
     }
 }
