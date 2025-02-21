@@ -1,5 +1,6 @@
 package com.example.restapicalls.controller;
 
+import com.example.restapicalls.UserDTO;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -22,5 +23,12 @@ public class HelloController {
     public String sayHelloWithPath(@PathVariable String name) {
         // Returns a greeting message with the provided name
         return "Hello " + name + " from BridgeLabz";
+    }
+
+    // Step-3: Handle POST request and accept JSON body
+    @PostMapping("/post")
+    public String sayHelloWithPost(@RequestBody UserDTO user) {
+        // Returns greeting message using firstName and lastName
+        return "Hello " + user.getFirstName() + " " + user.getLastName() + " from BridgeLabz";
     }
 }
